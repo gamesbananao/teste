@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byote - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2>Byote</h2>
+            <div class="nav-items">
+                <span id="user-display"></span>
+                <button id="logoutBtn" class="btn-secondary">Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <ul class="menu">
+                <li class="menu-item active" data-tab="bot-config">Configurar Bot</li>
+                <li class="menu-item" data-tab="status">Status</li>
+                <li class="menu-item" data-tab="commands">Comandos</li>
+                <li class="menu-item" data-tab="settings">Configurações</li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <!-- Tab: Configurar Bot -->
+            <div id="bot-config" class="tab-content active">
+                <h3>Configuração do Bot</h3>
+                <div class="config-section">
+                    <label for="bot-token">Token do Bot:</label>
+                    <input type="password" id="bot-token" placeholder="Insira o token do seu bot Discord">
+                    <button id="saveTokenBtn" class="btn-primary">Salvar Token</button>
+                </div>
+
+                <div class="bot-controls">
+                    <button id="startBot" class="btn-success">Iniciar Bot</button>
+                    <button id="stopBot" class="btn-danger" disabled>Parar Bot</button>
+                </div>
+
+                <div id="bot-status" class="status-box">
+                    <h4>Status do Bot</h4>
+                    <p id="status-text">Bot desconectado</p>
+                </div>
+            </div>
+
+            <!-- Tab: Status -->
+            <div id="status" class="tab-content">
+                <h3>Status do Bot</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Servidores</h4>
+                        <p id="server-count">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Usuários</h4>
+                        <p id="user-count">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Uptime</h4>
+                        <p id="uptime">00:00:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Comandos -->
+            <div id="commands" class="tab-content">
+                <h3>Comandos Personalizados</h3>
+                <div class="command-creator">
+                    <input type="text" id="cmd-trigger" placeholder="Comando (ex: !help)">
+                    <input type="text" id="cmd-response" placeholder="Resposta do bot">
+                    <button id="addCommand" class="btn-primary">Adicionar Comando</button>
+                </div>
+                <div id="commands-list" class="commands-list"></div>
+            </div>
+
+            <!-- Tab: Configurações -->
+            <div id="settings" class="tab-content">
+                <h3>Configurações da Conta</h3>
+                <div class="settings-section">
+                    <h4>Alterar Dados de Login</h4>
+                    <div class="input-group">
+                        <label>Novo Nome de Usuário:</label>
+                        <input type="text" id="new-username" placeholder="Novo nome">
+                    </div>
+                    <div class="input-group">
+                        <label>Nova Senha:</label>
+                        <input type="password" id="new-password" placeholder="Nova senha">
+                    </div>
+                    <div class="input-group">
+                        <label>Confirmar Nova Senha:</label>
+                        <input type="password" id="confirm-password" placeholder="Confirme a senha">
+                    </div>
+                    <button id="updateCredentials" class="btn-primary">Atualizar Dados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
